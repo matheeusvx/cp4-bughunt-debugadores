@@ -20,12 +20,6 @@ public class ConteudoController {
     @Autowired
     private ConteudoRepository conteudoRepository;
 
-    // GET /api/conteudos - Listar todos
-    @GetMapping
-    public List<Conteudo> listarTodos() {
-        return conteudoRepository.findAll();
-    }
-
     // GET /api/conteudos/{id} - Buscar por ID
     @GetMapping("/{id}")
     public Conteudo buscarPorId(@PathVariable Long id) {
@@ -37,7 +31,12 @@ public class ConteudoController {
             // TODO: tratar isso depois
         }
         return null;
+        return conteudoRepository.findById(id)
+                .orElseThrow(() -> new ConteudoNaoEncontradoException("Conteúdo não encontrado: " + id));
     }
+
+    // GET /api/conteudos/categoria/{categoria} - Buscar por categoria
+
 
     // GET /api/conteudos/categoria/{categoria} - Buscar por categoria
     @GetMapping("/categoria/{categoria}")
