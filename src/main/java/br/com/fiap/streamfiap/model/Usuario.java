@@ -64,16 +64,18 @@ public Usuario alugar(Conteudo conteudo) {
     debitarCreditos(preco);
     conteudo.setDisponivel(false);
 
-        System.out.println("==================================================");
-        System.out.println("RECIBO STREAMFIAP");
-        System.out.println("Usuario: " + this.nome);
-        System.out.println("Conteudo: " + conteudo.getTitulo());
-        System.out.println("Valor pago: R$ " + preco);
-        System.out.println("Creditos restantes: R$ " + this.creditos);
-        System.out.println("Obrigado por usar o StreamFIAP!");
-        System.out.println("==================================================");
+    System.out.println("==================================================");
+    System.out.println("RECIBO STREAMFIAP");
+    System.out.println("Usuario: " + this.nome);
+    System.out.println("Conteudo: " + conteudo.getTitulo());
+    System.out.println("Valor pago: R$ " + preco);
+    System.out.println("Creditos restantes: R$ " + this.creditos);
+    System.out.println("Obrigado por usar o StreamFIAP!");
+    System.out.println("==================================================");
 
-        return this;
+    return this;
+}
+
     }
 
     // Getters e Setters
