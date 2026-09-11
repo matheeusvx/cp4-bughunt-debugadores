@@ -23,34 +23,15 @@ public class ConteudoController {
     // GET /api/conteudos/{id} - Buscar por ID
     @GetMapping("/{id}")
     public Conteudo buscarPorId(@PathVariable Long id) {
-        try {
-            Conteudo conteudo = conteudoRepository.findById(id)
-                    .orElseThrow(() -> new ConteudoNaoEncontradoException("Conteúdo não encontrado: " + id));
-            return ResponseEntity.ok(conteudo).getBody();
-        } catch (Exception e) {
-            // TODO: tratar isso depois
-        }
-        return null;
         return conteudoRepository.findById(id)
                 .orElseThrow(() -> new ConteudoNaoEncontradoException("Conteúdo não encontrado: " + id));
     }
 
     // GET /api/conteudos/categoria/{categoria} - Buscar por categoria
-
-
-    // GET /api/conteudos/categoria/{categoria} - Buscar por categoria
     @GetMapping("/categoria/{categoria}")
     public List<Conteudo> listarPorCategoria(@PathVariable String categoria) {
-        List<Conteudo> resultado = new ArrayList<>();
-        for (Conteudo c : conteudoRepository.findAll()) {
-            if (c.getCategoria() == categoria) {
-                resultado.add(c);
-            }
-        }
-        return resultado;
         return conteudoRepository.findByCategoria(categoria);
     }
-
 
     // GET /api/conteudos/{id}/preco-promocional - Preço com promoção
     @GetMapping("/{id}/preco-promocional")
@@ -63,7 +44,7 @@ public class ConteudoController {
     // POST /api/conteudos/filme - cadastra um filme (cria nova instância sem o id vindo do cliente)
     @PostMapping("/filme")
     public ResponseEntity<Filme> cadastrarFilme(@RequestBody Filme filme) {
-        Filme novo = new Filme(filme.getTitulo(), filme.getCategoria(), filme.duracaoMinutos,
+        Filme novo = new Filme(filme.getTitulo(), filme.getCategoria(), filme.getDuracaoMinutos(),
                 filme.getClassificacaoEtaria(), filme.isDisponivel(), filme.isEstreia());
         return ResponseEntity.status(201).body(conteudoRepository.save(novo));
     }
@@ -71,8 +52,8 @@ public class ConteudoController {
     // POST /api/conteudos/serie - cadastra uma série
     @PostMapping("/serie")
     public ResponseEntity<Serie> cadastrarSerie(@RequestBody Serie serie) {
-        Serie nova = new Serie(serie.getTitulo(), serie.getCategoria(), serie.duracaoMinutos,
-                serie.getClassificacaoEtaria(), serie.getNumeroTemporadas());
+        Serie nova = new Serie(serie.getTitulo(), serie.getCategoria(), serie.getDuracaoMinutos(),
+                serie.getClassificacaoEtaria(), serie.isDisponivel(), serie.getNumeroTemporadas());
         return ResponseEntity.status(201).body(conteudoRepository.save(nova));
     }
 
@@ -80,7 +61,7 @@ public class ConteudoController {
     @PostMapping("/documentario")
     public ResponseEntity<Documentario> cadastrarDocumentario(@RequestBody Documentario documentario) {
         Documentario novo = new Documentario(documentario.getTitulo(), documentario.getCategoria(),
-                documentario.duracaoMinutos, documentario.getClassificacaoEtaria(),
+                documentario.getDuracaoMinutos(), documentario.getClassificacaoEtaria(),
                 documentario.isDisponivel(), documentario.getTema());
         return ResponseEntity.status(201).body(conteudoRepository.save(novo));
     }
