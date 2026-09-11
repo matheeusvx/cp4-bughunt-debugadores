@@ -4,13 +4,11 @@
 
 **Grupo:** Debugadores
 
-| Integrante | RM | Turma |
-|---|---|---|
-| Henrique Mortari | _preencher_ | _preencher_ |
-| VictorNMortari | _preencher_ | _preencher_ |
-| matheeusvx | _preencher_ | _preencher_ |
-| MUnizZz526 | _preencher_ | _preencher_ |
-| Rafael Ferreira | _preencher_ | _preencher_ |
+Rafael Martins 563285
+Matheus Moreli 562765
+Victor Nicolas 564804
+Henrique Nicolas 564699
+Cauã Muniz 566527
 
 | Campo | |
 |---|---|
