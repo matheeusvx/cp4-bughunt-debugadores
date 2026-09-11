@@ -24,12 +24,13 @@ public class AluguelController {
     @PostMapping
     public ResponseEntity<Usuario> alugar(@RequestParam Long usuarioId, @RequestParam Long conteudoId)
             throws ClassificacaoIndicativaException {
-        Usuario usuario = usuarioRepository.findById(usuarioId)
-                .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado: " + usuarioId));
-        Conteudo conteudo = conteudoRepository.findById(conteudoId)
-                .orElseThrow(() -> new ConteudoNaoEncontradoException("Conteúdo não encontrado: " + conteudoId));
+        public ResponseEntity<Usuario> alugar(@RequestParam Long usuarioId, @RequestParam Long conteudoId) {
+            Usuario usuario = usuarioRepository.findById(usuarioId)
+                    .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado: " + usuarioId));
+            Conteudo conteudo = conteudoRepository.findById(conteudoId)
 
-        Usuario usuarioAtualizado = usuario.alugar(conteudo);
+
+            Usuario usuarioAtualizado = usuario.alugar(conteudo);
 
         conteudoRepository.save(conteudo);
         return ResponseEntity.ok(usuarioRepository.save(usuarioAtualizado));
