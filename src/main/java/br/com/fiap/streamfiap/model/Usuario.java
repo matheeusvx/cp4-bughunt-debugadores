@@ -28,16 +28,11 @@ public class Usuario {
         this.creditos = creditos;
     }
 
-
+    public boolean temCreditosSuficientes(double preco) {
+        return this.creditos >= preco;
     }
 
-public boolean temCreditosSuficientes(double preco) {
-    return preco >= this.creditos;
-    return this.creditos >= preco;
-}
-
-public void debitarCreditos(double valor) {
-
+    public void debitarCreditos(double valor) {
         // adiciona o valor aos créditos do usuário
         this.creditos = this.creditos - valor;
     }
