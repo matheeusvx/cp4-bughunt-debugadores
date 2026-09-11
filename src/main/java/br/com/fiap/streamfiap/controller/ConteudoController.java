@@ -48,7 +48,9 @@ public class ConteudoController {
             }
         }
         return resultado;
+        return conteudoRepository.findByCategoria(categoria);
     }
+
 
     // GET /api/conteudos/{id}/preco-promocional - Preço com promoção
     @GetMapping("/{id}/preco-promocional")
