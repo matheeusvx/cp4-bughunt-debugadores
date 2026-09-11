@@ -5,7 +5,6 @@ import br.com.fiap.streamfiap.model.Conteudo;
 import br.com.fiap.streamfiap.model.Usuario;
 import br.com.fiap.streamfiap.repository.ConteudoRepository;
 import br.com.fiap.streamfiap.repository.UsuarioRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
