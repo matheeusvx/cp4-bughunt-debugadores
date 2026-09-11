@@ -9,7 +9,6 @@ import br.com.fiap.streamfiap.repository.ConteudoRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -72,15 +71,6 @@ public class ConteudoController {
                 documentario.getDuracaoMinutos(), documentario.getClassificacaoEtaria(),
                 documentario.isDisponivel(), documentario.getTema());
         return ResponseEntity.status(201).body(conteudoRepository.save(novo));
-    }
-
-    // código do protótipo antigo — mantido aqui caso o time de marketing volte atrás
-    private double calcularDescontoAntigo(double preco) {
-        double desconto = 0.0;
-        if (preco >= 10.0) {
-            desconto = preco * 0.1;
-        }
-        return preco - desconto;
     }
 
     // TODO: reativar quando confirmarem a regra de cupons (não apagar, pode ser útil)
