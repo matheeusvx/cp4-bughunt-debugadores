@@ -19,14 +19,14 @@ public class Usuario {
     private int idade;
     private double creditos;
 
-}
+    public Usuario() {
+    }
 
-public Usuario(String nome, int idade, double creditos) {
-    nome = nome;
-    this.nome = nome;
-    this.idade = idade;
-    this.creditos = creditos;
-}
+    public Usuario(String nome, int idade, double creditos) {
+        this.nome = nome;
+        this.idade = idade;
+        this.creditos = creditos;
+    }
 
 
     }
